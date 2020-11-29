@@ -13,12 +13,13 @@ use \App\Http\Controllers\Api\TodoController;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+Route::group(['middleware' => 'cors'], function () {
+    Route::get('task/', [TodoController::class, 'index'])->name('task.index');
+    Route::post('task/', [TodoController::class, 'store'])->name('task.store');
+    Route::get('task/{id}', [TodoController::class, 'show'])->name('task.show');
+    Route::post('task/{id}', [TodoController::class, 'update'])->name('task.update');
+    Route::delete('task/{id}', [TodoController::class, 'destroy'])->name('task.destroy');
 
-
-Route::prefix('task')->group(function () {
-    Route::get('/', [TodoController::class, 'index'])->name('task.index');
-    Route::post('/', [TodoController::class, 'store'])->name('task.store');
-    Route::get('/{id}', [TodoController::class, 'show'])->name('task.show');
-    Route::post('/{id}', [TodoController::class, 'update'])->name('task.update');
-    Route::delete('/{id}', [TodoController::class, 'destroy'])->name('task.destroy');
 });
+
+
