@@ -85,7 +85,7 @@ class TaskEntity implements \JsonSerializable
     {
        return [
            'id' => $this->getId(),
-           'tittle' => $this->getTitle(),
+           'title' => $this->getTitle(),
            'description' => $this->getDescription(),
            'priority' => $this->getPriority(),
        ];

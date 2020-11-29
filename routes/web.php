@@ -13,12 +13,3 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $tasks = [
-        1 => "Tarea 1",
-        2 => "Tarea 2",
-        3 => "Tarea 3"
-    ];
-    return serialize($tasks);
-//    return view('welcome');
-});

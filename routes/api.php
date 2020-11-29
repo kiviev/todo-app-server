@@ -1,6 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\Api\TodoController;
 
@@ -15,10 +14,11 @@ use \App\Http\Controllers\Api\TodoController;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+
+Route::prefix('task')->group(function () {
+    Route::get('/', [TodoController::class, 'index'])->name('task.index');
+    Route::post('/', [TodoController::class, 'store'])->name('task.store');
+    Route::get('/{id}', [TodoController::class, 'show'])->name('task.show');
+    Route::post('/{id}', [TodoController::class, 'update'])->name('task.update');
+    Route::delete('/{id}', [TodoController::class, 'destroy'])->name('task.destroy');
 });
-
-Route::resource('task', TodoController::class);
-
-
