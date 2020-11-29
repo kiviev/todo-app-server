@@ -23,7 +23,7 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
       - name: 'copy .env'
         run: |
-          cp .env.ci .env
+          cp .env.exampple .env
           php artisan cache:clear
           php artisan config:clear
           php artisan key:generate
