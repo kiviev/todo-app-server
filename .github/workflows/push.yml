@@ -27,8 +27,8 @@ jobs:
           php artisan cache:clear
           php artisan config:clear
           php artisan key:generate
-      - name: 'Tests'
-        run: composer test
+#      - name: 'Tests'
+#        run: composer test
       - run: sudo chmod 700 ./key
       - name: Deploy to OVH
         run: rsync -rav -e "ssh -i ./key -p ${{ secrets.SSH_PORT }} -oStrictHostKeyChecking=no" --progress --exclude={"node_modules","key","storage"} . ${{ secrets.SSH_USER }}@${{ secrets.REMOTE_HOST }}:${{ secrets.TARGET }}
