@@ -8,7 +8,6 @@ Para probar se puede probar ejecutando
 ```
 cd proyect && composer install
 ```
-x8yrRb69Z
 
 ## Levantar servidor local de desarrollo
 
