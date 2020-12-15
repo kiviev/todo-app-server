@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class Cors
 {
@@ -11,11 +12,12 @@ class Cors
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
+     * @param Closure $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
     {
+
         return $next($request)
             //Url a la que se le dará acceso en las peticiones
             ->header("Access-Control-Allow-Origin", env('VUE_APP_SERVER', 'http://localhost:8080'))
